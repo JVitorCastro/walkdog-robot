@@ -33,5 +33,14 @@ Deve poder cadastrar um novo dog walker
     Get Property    css=input[name=addressDistrict]    value    equal    ${addressDistrict}
     Get Property    css=input[name=addressCityUf]      value    equal    ${addressCityUf}
 
-    Fill Text    css=input[name=addressNumber]     ${addressNumber}
-    Fill Text    css=input[name=addressDetails]    ${addressDetails}
+    Fill Text       css=input[name=addressNumber]     ${addressNumber}
+    Fill Text       css=input[name=addressDetails]    ${addressDetails}
+
+    Upload File By Selector    css=input[type=file]   ${EXECDIR}/006_f2.png
+
+    Click                      css=.button-register
+
+    Wait For Elements State    css=.swal2-html-container    visible    5
+    Get Text                   css=.swal2-html-container    equal    Recebemos o seu cadastro e em breve retornaremos o contato.
+
+    Sleep    5
